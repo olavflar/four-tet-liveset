@@ -1,0 +1,535 @@
+@custom-variant dark (&:is(.dark *));
+
+/* Poolsuite Retro Computer Theme */
+:root {
+  --font-size: 11px;
+  
+  /* Poolsuite Color Palette */
+  --background: #f9efe4;
+  --foreground: #000000;
+  --card: #c0c0c0;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #0000ff;
+  --primary-foreground: #ffffff;
+  --secondary: #c0c0c0;
+  --secondary-foreground: #000000;
+  --muted: #f0f0f0;
+  --muted-foreground: #808080;
+  --accent: #ff69b4;
+  --accent-foreground: #000000;
+  --destructive: #ff0000;
+  --destructive-foreground: #ffffff;
+  --border: #808080;
+  --input: #ffffff;
+  --input-background: #ffffff;
+  --switch-background: #c0c0c0;
+  --font-weight-medium: normal;
+  --font-weight-normal: normal;
+  --ring: #0000ff;
+  --chart-1: #ff0000;
+  --chart-2: #00ff00;
+  --chart-3: #0000ff;
+  --chart-4: #ffff00;
+  --chart-5: #ff00ff;
+  --radius: 0px;
+  
+  /* Retro colors - Poolsuite inspired */
+  --retro-pink: #d4a5a5;
+  --retro-purple: #b8a5d4;
+  --retro-blue: #4169e1;
+  --retro-gray: #c0c0c0;
+  --retro-dark-gray: #808080;
+  --retro-cream: #f9efe4;
+  --retro-peach: #f4d5c7;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground;
+    font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    background: linear-gradient(135deg, #f9efe4 0%, #f4e5d9 25%, #f0ddd4 50%, #ecd4ce 75%, #e8cbc9 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    user-select: none;
+  }
+  
+  /* Classic Window Styling */
+  .retro-window {
+    background: var(--retro-gray);
+    border: 2px outset var(--retro-gray);
+    border-radius: 0;
+    box-shadow: 
+      2px 2px 1px rgba(0, 0, 0, 0.5),
+      inset 1px 1px 0px rgba(255, 255, 255, 0.8);
+    position: relative;
+    font-family: "MS Sans Serif", "Tahoma", sans-serif;
+  }
+  
+  .retro-title-bar {
+    background: linear-gradient(90deg, #0080ff 0%, #004080 100%);
+    color: white;
+    font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--retro-dark-gray);
+  }
+  
+  .retro-title-bar .title {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .retro-title-bar .controls {
+    display: flex;
+    gap: 2px;
+  }
+  
+  .retro-window-btn {
+    width: 16px;
+    height: 14px;
+    background: var(--retro-gray);
+    border: 1px outset var(--retro-gray);
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .retro-window-btn:active {
+    border: 1px inset var(--retro-gray);
+  }
+  
+  .retro-button {
+    background: var(--retro-gray);
+    border: 2px outset var(--retro-gray);
+    color: black;
+    font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    padding: 2px 8px;
+    cursor: pointer;
+    border-radius: 0;
+    min-height: 23px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .retro-button:hover {
+    background: #d4d0c8;
+  }
+  
+  .retro-button:active {
+    border: 2px inset var(--retro-gray);
+  }
+  
+  .retro-button:disabled {
+    color: var(--retro-dark-gray);
+    cursor: not-allowed;
+  }
+  
+  .retro-button-primary {
+    background: #0080ff;
+    color: white;
+    border: 2px outset #0080ff;
+  }
+  
+  .retro-button-primary:hover {
+    background: #0066cc;
+  }
+  
+  .retro-button-primary:active {
+    border: 2px inset #0080ff;
+  }
+  
+  .retro-panel {
+    background: var(--retro-gray);
+    border: 2px inset var(--retro-gray);
+    padding: 8px;
+  }
+  
+  .retro-inset {
+    background: white;
+    border: 2px inset var(--retro-gray);
+    padding: 4px;
+  }
+  
+  .retro-outset {
+    background: var(--retro-gray);
+    border: 2px outset var(--retro-gray);
+    padding: 4px;
+  }
+  
+  .retro-status-bar {
+    background: var(--retro-gray);
+    border-top: 1px solid var(--retro-dark-gray);
+    padding: 2px 4px;
+    font-size: 11px;
+    display: flex;
+    gap: 8px;
+  }
+  
+  .retro-status-section {
+    border: 1px inset var(--retro-gray);
+    padding: 1px 4px;
+    font-size: 11px;
+  }
+  
+  /* Classic Input Styling */
+  .retro-input {
+    background: white;
+    border: 2px inset var(--retro-gray);
+    font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    font-size: 11px;
+    padding: 2px 4px;
+    color: black;
+  }
+  
+  .retro-input:focus {
+    outline: 1px dotted black;
+    outline-offset: -3px;
+  }
+  
+  /* Classic Range Slider */
+  input[type="range"].retro-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--retro-gray);
+    height: 20px;
+    border: 2px inset var(--retro-gray);
+    outline: none;
+  }
+  
+  input[type="range"].retro-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 16px;
+    background: var(--retro-gray);
+    border: 2px outset var(--retro-gray);
+    cursor: pointer;
+  }
+  
+  input[type="range"].retro-slider::-webkit-slider-thumb:active {
+    border: 2px inset var(--retro-gray);
+  }
+  
+  input[type="range"].retro-slider::-moz-range-thumb {
+    width: 20px;
+    height: 16px;
+    background: var(--retro-gray);
+    border: 2px outset var(--retro-gray);
+    cursor: pointer;
+    border-radius: 0;
+  }
+  
+  /* Menu styling */
+  .retro-menu {
+    background: var(--retro-gray);
+    border: 2px outset var(--retro-gray);
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+  }
+  
+  .retro-menu-item {
+    padding: 2px 16px;
+    font-size: 11px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .retro-menu-item:hover {
+    background: #0080ff;
+    color: white;
+  }
+  
+  .retro-separator {
+    height: 1px;
+    background: var(--retro-dark-gray);
+    margin: 2px 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Progress bar */
+  .retro-progress {
+    background: white;
+    border: 2px inset var(--retro-gray);
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .retro-progress-bar {
+    background: #0080ff;
+    height: 100%;
+    transition: width 0.3s ease;
+  }
+  
+  /* Dotted pattern overlay for authenticity */
+  .retro-pattern {
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 4px 4px;
+    position: relative;
+  }
+  
+  /* Scrollbar styling */
+  .retro-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--retro-dark-gray) var(--retro-gray);
+  }
+  
+  .retro-scrollbar::-webkit-scrollbar {
+    width: 16px;
+  }
+  
+  .retro-scrollbar::-webkit-scrollbar-track {
+    background: var(--retro-gray);
+    border: 2px inset var(--retro-gray);
+  }
+  
+  .retro-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--retro-gray);
+    border: 2px outset var(--retro-gray);
+  }
+  
+  .retro-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #d4d0c8;
+  }
+  
+  .retro-scrollbar::-webkit-scrollbar-button {
+    background: var(--retro-gray);
+    border: 2px outset var(--retro-gray);
+    height: 16px;
+  }
+  
+  .retro-scrollbar::-webkit-scrollbar-button:hover {
+    background: #d4d0c8;
+  }
+  
+  /* Desktop icons style */
+  .retro-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 4px;
+    cursor: pointer;
+    color: black;
+    text-align: center;
+    font-size: 11px;
+    max-width: 64px;
+  }
+  
+  .retro-icon:hover {
+    background: rgba(0, 128, 255, 0.3);
+  }
+  
+  .retro-icon.selected {
+    background: #0080ff;
+    color: white;
+  }
+  
+  .retro-icon-image {
+    width: 32px;
+    height: 32px;
+    background: var(--retro-gray);
+    border: 1px outset var(--retro-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  
+  /* CD Player style elements */
+  .retro-cd-player {
+    background: linear-gradient(145deg, #e8e8e8 0%, #c0c0c0 100%);
+    border: 2px outset var(--retro-gray);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 
+      2px 2px 1px rgba(0, 0, 0, 0.5),
+      inset 1px 1px 0px rgba(255, 255, 255, 0.8);
+  }
+  
+  .retro-cd-display {
+    background: #001100;
+    color: #00ff00;
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    padding: 4px 8px;
+    border: 2px inset var(--retro-gray);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  
+  .retro-waveform {
+    background: black;
+    border: 2px inset var(--retro-gray);
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .retro-waveform-bar {
+    background: #00ff00;
+    width: 2px;
+    position: absolute;
+    bottom: 0;
+    opacity: 0.8;
+  }
+}
+
+/**
+ * Base typography - Classic Windows fonts
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1.2;
+      font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    }
+
+    h2 {
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 1.2;
+      font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    }
+
+    h3 {
+      font-size: 11px;
+      font-weight: bold;
+      line-height: 1.2;
+      font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    }
+
+    h4 {
+      font-size: 11px;
+      font-weight: bold;
+      line-height: 1.2;
+      font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    }
+
+    p {
+      font-size: 11px;
+      font-weight: normal;
+      line-height: 1.3;
+      font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    }
+
+    label {
+      font-size: 11px;
+      font-weight: normal;
+      line-height: 1.2;
+      font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    }
+
+    button {
+      font-size: 11px;
+      font-weight: normal;
+      line-height: 1.2;
+      font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    }
+
+    input {
+      font-size: 11px;
+      font-weight: normal;
+      line-height: 1.2;
+      font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
