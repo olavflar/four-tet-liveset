@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { CoolEditWindow } from './components/cool-edit-window';
+import CoolEditWindow from './components/cool-edit-window';
 
 // Other existing imports
 
 const App = () => {
   // Other existing state variables 
   const [coolEditVisible, setCoolEditVisible] = useState(false);
+  const [focusedWindow, setFocusedWindow] = useState<string>('main');
   // Other existing code...
 
   return (
@@ -50,12 +51,4 @@ const App = () => {
   );
 };
 
-const getZIndex = (windowId: string) => {
-  return focusedWindow === windowId ? 1000 : 
-         windowId === 'main' ? 999 : 
-         windowId === 'results' ? 998 : 
-         windowId === 'cooledit' ? 997 : 996;
-};
-
-// Export statement
 export default App;
